@@ -45,12 +45,12 @@ if (defined $new_peer_IP) {
 		"[Interface]\n" .
 		"PrivateKey = ${peer_private_key}" .
 		"Address = ${new_peer_IP}/32\n" .
+		"DNS = 84.200.69.80, 84.200.70.40\n" .
 		"\n" .
 		"[Peer]\n" .
 		"PublicKey = ${svr_public_key}" .
 		"Endpoint = ${svr_WAN_IP}:${listen_port}\n" .
-		"AllowedIPs = 0.0.0.0/0\n" .
-		"DNS = 84.200.70.40\n";
+		"AllowedIPs = 0.0.0.0/0\n";
 	
 	`cp ${svr_conf} ${svr_conf}.bak` and die "Unable to create backup of ${svr_conf}!\n".$!;
 	# Append to the server conf file
